@@ -13,6 +13,9 @@ import flask
 import flask_cors
 import googleapiclient
 import requests
+from functools import wraps
+from flask import render_template
+from authlib.integrations.flask_client import OAuth
 
 import src.functions.config
 import src.functions.credentials
@@ -21,7 +24,7 @@ import src.functions.tests
 
 colorama.init()
 print(
-    "====================================================\n\033[96m               libDrive - v1.4.7\033[94m\n                   @eliasbenb\033[0m\n====================================================\n"
+    "====================================================\n\033[96m               Dester - LibDrive - v1\033[94m\n             @eliasbenb - @AlkenDester\033[0m\n====================================================\n"
 )
 
 print("\033[32mREADING CONFIG...\033[0m")
@@ -116,7 +119,7 @@ def threaded_metadata():
                 {
                     "code": 500,
                     "content": None,
-                    "message": "libDrive is already building metadata, please wait.",
+                    "message": "Dester - LibDrive is already building metadata, please wait.",
                     "success": False,
                 },
                 500,
@@ -201,17 +204,17 @@ def create_app():
                 pass
         else:
             try:
-                soup.find("meta", {"id": "@ld-meta-og-title"})["content"] = "libDrive"
+                soup.find("meta", {"id": "@ld-meta-og-title"})["content"] = "Dester - Libdrive"
             except:
                 pass
             try:
                 soup.find("meta", {"id": "@ld-meta-og-site_name"})[
                     "content"
-                ] = "libDrive"
+                ] = "Dester - Libdrive"
             except:
                 pass
             try:
-                soup.find("title", {"id": "@ld-title"}).string = "libDrive"
+                soup.find("title", {"id": "@ld-title"}).string = "Dester - Libdrive"
             except:
                 pass
         if (
@@ -305,15 +308,18 @@ app.register_blueprint(streammapBP)
 app.register_blueprint(subtitledownloadBP)
 app.register_blueprint(trailerBP)
 
-
-@app.route("/", defaults={"path": ""})
+@app.route("/")
+def home():
+   return render_template('home.html')
 @app.route("/<path:path>")
 async def serve(path):
     if (path != "") and os.path.exists("%s/%s" % (app.static_folder, path)):
         return flask.send_from_directory(app.static_folder, path)
     else:
         return flask.send_from_directory(app.static_folder, "index.html")
-
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html")
 
 if __name__ == "__main__":
     print("\033[32mSERVING SERVER...\033[0m")

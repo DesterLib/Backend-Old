@@ -16,6 +16,7 @@ def readConfig():
                     "account_list": [],
                     "arcio": None,
                     "auth": False,
+                    "auth0": False,
                     "build_interval": 360,
                     "category_list": [],
                     "client_id": None,
