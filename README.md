@@ -25,9 +25,9 @@ Identifier = just for reference any random domain but recommended to use your ow
 
 > RBAC Settings
 
---- Enable RBAC
---- Add Permissions in the Access Token
---- Allow Skipping User Consent [Upto you]
+--- Enable RBAC <br>
+--- Add Permissions in the Access Token <br>
+--- Allow Skipping User Consent [Upto you] <br>
 
 `Permissions tab`
 
