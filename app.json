@@ -1,0 +1,38 @@
+{
+  "name": "Server",
+  "description": "y",
+  "success_url": "/",
+  "env": {
+    "LIBDRIVE_CONFIG": {
+      "description": "Create this through the config generator",
+      "value": "",
+      "required": true
+    },
+    "LIBDRIVE_CLOUD": {
+      "description": "The ID of any empty Google Drive folder. This folder will be used to store the config and AUTO generated metadata",
+      "value": "",
+      "required": false
+    },
+    "PINGER": {
+      "description": "HOST URL",
+      "value": "https://APP_NAME.herokuapp.com",
+      "required": true
+    },
+    "PINGER_INTERVAL": {
+      "description": "How often, in seconds, the pinger will be used",
+      "value": "900",
+      "required": true
+    },
+    "WEB_CONCURRENCY": {
+      "description": "Don't change this, leave the value as 1",
+      "value": "1",
+      "required": true
+    }
+  },
+  "image": "heroku/python",
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
