@@ -1,6 +1,25 @@
-{
-  "name": "Server",
-  "description": "y",
+  {
+  "name": "libDrive",
+  "description": "libDrive is a Google Drive media library manager and indexer, similar to Plex, that organizes Google Drive media to offer an intuitive and user-friendly experience.",
+  "keywords": [
+    "heroku",
+    "movies",
+    "plex",
+    "google-drive",
+    "tv",
+    "indexing",
+    "indexer",
+    "drive",
+    "index",
+    "gdrive",
+    "cloudflare-workers",
+    "goindex",
+    "gindex",
+    "libdrive"
+  ],
+  "website": "https://github.com/libDrive/libDrive",
+  "repository": "https://github.com/ivanarya007/Backend",
+  "logo": "https://avatars2.githubusercontent.com/u/75073550?v=4",
   "success_url": "/",
   "env": {
     "LIBDRIVE_CONFIG": {
